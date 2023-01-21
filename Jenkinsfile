@@ -6,7 +6,7 @@ pipeline {
                sh '''
                echo "----TEST CODE-----"
                echo "-----------------------"
-               resoult=`grep -o -i "DEV" index.html | wc -l`
+               resoult=`grep -o -i "DEVELOP" index.html | wc -l`
                if [ "$resoult" = "1" ]
                then
                  echo "Test PASSED"
