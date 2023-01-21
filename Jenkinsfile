@@ -4,6 +4,7 @@ pipeline {
        stage('Test Code') {
            steps {
                sh """
+               echo "----TEST CODE-----"
                echo "-----------------------"
                resoult=`grep -o -i "DEV" index.html | wc -l`
                if [ "$resoult" = "1" ]
