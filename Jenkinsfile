@@ -22,8 +22,7 @@ pipeline {
                sh '''
                echo "Deploying Code"
                echo "-------------"
-               sudo rm -rf /usr/share/nginx/html/*
-               cp index.html /usr/share/nginx/html
+               mv index.html /usr/share/nginx/html
                '''
           }
       }
