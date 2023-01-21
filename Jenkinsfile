@@ -1,1 +1,27 @@
-
+pipeline {
+   agent any
+   stages {
+       stage('Test Code') {
+           steps {
+               sh """
+               echo "-----------------------"
+               resoult=`grep -o -i "DEV" index.html | wc -l`
+               if [ "$resoult" = "1" ]
+               then
+                 echo "Test PASSED"
+               else
+                 echo "Test FAILED"
+                 exit 1
+               fi
+               """
+           }
+       }
+      stage('Deploy Code') {
+          steps {
+               sh """
+               echo "Deploying Code"
+               """
+          }
+      }
+   }
+}
