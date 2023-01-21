@@ -22,7 +22,6 @@ pipeline {
                sh '''
                echo "Deploying Code"
                echo "-------------"
-               sudo chown -R jenkins:root /usr/share/nginx/html
                mv index.html /usr/share/nginx/html
                '''
           }
