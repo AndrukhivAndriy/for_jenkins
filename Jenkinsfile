@@ -3,7 +3,7 @@ pipeline {
    stages {
        stage('Test Code') {
            steps {
-               sh """
+               sh '''
                echo "----TEST CODE-----"
                echo "-----------------------"
                resoult=`grep -o -i "DEV" index.html | wc -l`
@@ -14,14 +14,14 @@ pipeline {
                  echo "Test FAILED"
                  exit 1
                fi
-               """
+               '''
            }
        }
       stage('Deploy Code') {
           steps {
-               sh """
+               sh '''
                echo "Deploying Code"
-               """
+               '''
           }
       }
    }
