@@ -4,6 +4,7 @@ pipeline {
        stage('Test Code') {
            steps {
                sh '''
+               echo "This test is running ${env.BUILD_ID} on ${env.JENKINS_URL}"
                echo "----TEST CODE-----"
                echo "-----------------------"
                resoult=`grep -o -i "MAIN" index.html | wc -l`
@@ -25,6 +26,12 @@ pipeline {
                mv index.html /usr/share/nginx/html
                '''
           }
+      }
+      stage ('Notification on Telegram') {
+         steps {
+            telegramSend 'Deploy on branch MAIN was SUCCESS'
+            
+         }
       }
    }
 }
