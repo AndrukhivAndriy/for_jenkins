@@ -4,6 +4,7 @@ pipeline {
        stage('Test Code') {
            steps {
                sh '''
+               echo "This test is running ${env.BUILD_ID} on ${env.JENKINS_URL}"
                echo "----TEST CODE-----"
                echo "-----------------------"
                resoult=`grep -o -i "DEVELOP" index.html | wc -l`
@@ -29,7 +30,7 @@ pipeline {
       stage ('Notification on Telegram') {
          steps {
             telegramSend 'Deploy on branch DEV was SUCCESS'
-            telegramSend 'Running ${env.BUILD_ID} on ${env.JENKINS_URL}'
+            
          }
       }
    }
