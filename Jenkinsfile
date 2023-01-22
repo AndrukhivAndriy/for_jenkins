@@ -28,7 +28,8 @@ pipeline {
       }
       stage ('Notification on Telegram') {
          steps {
-            telegramSend 'Hello World'
+            telegramSend 'Deploy on branch DEV was SUCCESS'
+            telegramSend 'Running ${env.BUILD_ID} on ${env.JENKINS_URL}'
          }
       }
    }
