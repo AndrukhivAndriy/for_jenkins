@@ -3,8 +3,8 @@ pipeline {
    stages {
        stage('Test Code') {
            steps {
-               sh '''
                echo "This test is running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+               sh '''
                echo "----TEST CODE-----"
                echo "-----------------------"
                resoult=`grep -o -i "DEVELOP" index.html | wc -l`
