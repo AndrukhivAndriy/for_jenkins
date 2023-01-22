@@ -26,5 +26,10 @@ pipeline {
                '''
           }
       }
+      stage ('Notification on Telegram') {
+         steps {
+            telegramSend 'Hello World'
+         }
+      }
    }
 }
