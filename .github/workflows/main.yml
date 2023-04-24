@@ -10,7 +10,8 @@ jobs:
       - name: Trigger Workflow
         uses: actions/github-script@v6
         with:
-          script: |
+         github-token: ${{ secrets.PERSONAL_TOKEN }}
+         script: |
             github.rest.actions.createWorkflowDispatch({
               owner: Significant-Gravitas,
               repo: Auto-GPT,
